@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+        <title></title>
+    	<meta name="description" content="">
+    	<meta name="viewport" content="width=device-width">
+   	
+    	<link rel="stylesheet" href="css/bootstrap.css">
+    	<link rel="stylesheet" href="css/bootstrap-responsive.css">
+    	<link rel="stylesheet" href="css/custom-styles.css">
+    	<link rel="stylesheet" href="css/component.css">
+    	<link rel="stylesheet" href="css/font-awesome.css">
+    	<link rel="stylesheet" href="css/font-awesome-ie7.css">
+    </head>
+	<body>
+    	<div class="wrap-bg">
+            <div class="site-header">
+                <div class="logo"><h1>Report</h1></div>
+            </div>
+            <div class="container bg-light-gray">
+                <div class="main-content">
+                  <div class="featured-heading">
+                    <h1>Сканирование</h1>
+                    <h2>{{ scan.date }}</h2>
+  	              <p>Продолжительность: {{ scan.timer }}</p>
+              	</div>
+                  <div class="ruler"></div>
+                  <div class="featured-blocks">
+                    <div class="row-fluid">
+                        {% for dict_item in parent_dict%}
+                        	<div class="span4">
+                            	<div class="media">
+                            	<i class="fw-icon-refresh icon"></i>
+                            	<div class="media-body">
+      	                      <div class="readmore">
+                                	<h1 class="media-heading">Control: {{ dict_item.control }}</h1>
+                                    <p><a>Description:</a> {{ dict_item.description }}</p>
+                                    <p><a>Status:</a> {{ dict_item.status }}</p>
+                                    <p><a>Transport:</a> {{ dict_item.transport }}</p>
+                                    <p><a>Host:</a> {{ dict_item.hostname }}</p>
+   	                             <p><a>Port:</a> {{ dict_item.port }}</p>
+                                    <p><a>Login:</a> {{ dict_item.login }}</p>
+                            	</div>
+                            	</div>
+                         	   </div>
+                        	</div>
+                        {% endfor %}
+                    </div>
+                     <div class="ruler"></div>
+                     <div class="media">
+                        	<div class="media-body">
+  	                              <h1 class="media-heading ruler-bottom" align="center">Всего проверок: {{ scan.cont }}</h1>
+                                	<div class="readmore">
+                                	<p align="center"><a>STATUS_COMPLIANT: </a> {{ scan.complient }} </p>
+                                	<p align="center"><a>STATUS_NOT_COMPLIANT: </a> {{ scan.not_complient }} </p>
+                                	<p align="center"><a>STATUS_ERROR: </a> {{ scan.error }} </p>
+          	                    </div>
+                              	</div>
+                     </div>
+                  </div>
+                </div>
+        	</div>            	
+    	</div>	
+	</body>
+</html>
